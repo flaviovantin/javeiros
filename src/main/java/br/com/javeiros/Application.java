@@ -1,3 +1,5 @@
+package br.com.javeiros;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
