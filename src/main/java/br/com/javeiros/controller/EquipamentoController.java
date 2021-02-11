@@ -1,16 +1,19 @@
 package br.com.javeiros.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import br.com.javeiros.controller.resource.EquipamentoResource;
+import br.com.javeiros.service.EquipamentoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/equipamentos")
+@RequestMapping("/equipamentos")
 public class EquipamentoController {
+
+    @Autowired
+    private EquipamentoService equipamentoService;
 
     @GetMapping
     @ResponseBody
@@ -20,5 +23,24 @@ public class EquipamentoController {
         equipamentos.add("Lucas");
         equipamentos.add("Marcelo");
         return equipamentos;
+    }
+
+    @PostMapping
+    @ResponseBody
+    public void gravarEquipamento(EquipamentoResource equipamentoResource) {
+
+        equipamentoService.gravarEquipamento();
+    }
+
+    @PutMapping
+    @ResponseBody
+    public void removerEquipamento(EquipamentoResource equipamentoResource) {
+
+    }
+
+    @DeleteMapping
+    @ResponseBody
+    public void removerEquipamento(Integer id) {
+
     }
 }
